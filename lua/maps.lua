@@ -66,7 +66,7 @@ map("n", "<C-z>", "<Undo>") -- Undo file
 map("i", "<C-z>", "<ESC><Undo>") -- Undo file
 
 
-map('n', '<C-f>', '/') --Search
+-- map('n', '<C-f>', '/') --Search
 
 
 return M
