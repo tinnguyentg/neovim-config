@@ -30,3 +30,6 @@ opt.title = true
 
 --Turn off highlight search
 opt.hlsearch = false
+
+--
+opt.swapfile = false
