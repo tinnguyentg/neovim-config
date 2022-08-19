@@ -10,9 +10,9 @@ function M.map(mode, lhs, rhs, opts)
 		opts.noremap = true
 	end
 
-	if opts.unique == nil then
-		opts.unique = true
-	end
+	-- if opts.unique == nil then
+	-- 	opts.unique = true
+	-- end
 	vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
