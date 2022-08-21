@@ -4,15 +4,7 @@
 
 return function()
 	require("mason-lspconfig").setup({
-		ensure_installed = {
-			"bash-language-server",
-			"emmet-ls",
-			"intelephense",
-			"pyright",
-			"sumneko_lua",
-			"typescript-language-server",
-			"yaml-language-server",
-		},
+		ensure_installed = vim.g.mason_lsp_ensured_installed,
 		automatic_installation = false,
 	})
 end

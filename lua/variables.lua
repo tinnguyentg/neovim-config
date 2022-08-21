@@ -1,4 +1,19 @@
-vim.g.mason_ensure_installed = { 'lua', 'javascript', 'pyright', 'intelephense', 'vls', 'vue-language-server', 'typescript-language-server', 'yaml-language-server' }
-vim.g.tree_sitter_ensure_installed = { "python", "lua", "php", "html", "yaml" }
-vim.g.lsp_servers = { 'pyright', 'intelephense', 'html', 'tsserver', 'sumneko_lua', 'vls', 'volar', 'yamlls' }
+vim.g.mason_tool_installer_ensured_installed = {
+	"stylua",
+	"shellcheck",
+	"shellharden",
+}
 
+
+-- Mason lsp servers map
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+vim.g.mason_lsp_ensured_installed = {
+	"pyright",
+	"tsserver",
+	"intelephense",
+	"volar",
+	"sumneko_lua",
+	"yamlls",
+	"bashls",
+	"lemminx",
+}

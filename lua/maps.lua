@@ -10,9 +10,9 @@ function M.map(mode, lhs, rhs, opts)
 		opts.noremap = true
 	end
 
-	-- if opts.unique == nil then
-	-- 	opts.unique = true
-	-- end
+	if opts.silent == nil then
+		opts.silent = true
+	end
 	vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
@@ -65,8 +65,6 @@ map("n", "QQ", ":q!<CR>") -- Quit
 map("n", "<C-z>", "<Undo>") -- Undo file
 map("i", "<C-z>", "<ESC><Undo>") -- Undo file
 
-
 -- map('n', '<C-f>', '/') --Search
-
 
 return M

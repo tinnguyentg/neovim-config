@@ -33,3 +33,7 @@ opt.hlsearch = false
 
 --
 opt.swapfile = false
+
+--
+opt.foldmethod = 'indent'
+-- opt.foldlevel = 1
