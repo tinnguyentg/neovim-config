@@ -2,9 +2,8 @@
 --
 --]]
 
-local luasnip = require("luasnip")
-
 return function()
+	local luasnip = require("luasnip")
 	local vim = vim
 	local opt = vim.opt
 	local cmp = require("cmp")
@@ -13,6 +12,8 @@ return function()
 	cmp.setup({
 		snippet = {
 			expand = function(args)
+				require("luasnip.loaders.from_vscode").lazy_load()
+				-- luasnip.lsp_expand(args.body) -- For `luasnip` users.
 				vim.fn["vsnip#anonymous"](args.body)
 			end,
 		},
@@ -45,7 +46,7 @@ return function()
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
 			{ name = "vsnip" }, -- For vsnip users.
-			{ name = 'luasnip' }, -- For luasnip users.
+			{ name = "luasnip" }, -- For luasnip users.
 			-- { name = 'ultisnips' }, -- For ultisnips users.
 			-- { name = 'snippy' }, -- For snippy users.
 		}, {
