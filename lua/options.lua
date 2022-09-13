@@ -37,3 +37,6 @@ opt.swapfile = false
 --
 opt.foldmethod = 'indent'
 -- opt.foldlevel = 1
+
+vim.api.nvim_exec([[ autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab]], false)
+vim.api.nvim_exec([[ autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab]], false)
