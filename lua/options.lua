@@ -39,4 +39,6 @@ opt.foldmethod = 'indent'
 -- opt.foldlevel = 1
 
 vim.api.nvim_exec([[ autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab]], false)
+vim.api.nvim_exec([[ autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab]], false)
+vim.api.nvim_exec([[ autocmd FileType yml,yaml set tabstop=2|set shiftwidth=2|set expandtab]], false)
 vim.api.nvim_exec([[ autocmd FileType python,xml set tabstop=4|set shiftwidth=4|set expandtab]], false)
