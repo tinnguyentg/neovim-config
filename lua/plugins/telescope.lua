@@ -9,4 +9,33 @@ return function()
 	map("n", "FF", ":Telescope find_files hidden=true<cr>")
 	map("n", "fg", ":Telescope live_grep<cr>")
 	map("n", "fb", ":Telescope buffers<cr>")
+
+	local odoo_repository = os.getenv("ODOO_REPOSITORY")
+	if odoo_repository then
+		-- map("n", "fodoo", string.format(":Telescope find_files search_dirs={'%s'}<cr>", odoo_repository))
+		-- map("n", "fgodoo", string.format(":Telescope live_grep search_dirs={'%s'}<cr>", odoo_repository))
+		-- map("n", "fgodoopy", string.format(":Telescope live_grep search_dirs={'%s'} type_filter=py<cr>", odoo_repository))
+		-- map("n", "fgodooxml", string.format(":Telescope live_grep search_dirs={'%s'} type_filter=xml<cr>", odoo_repository))
+
+		vim.api.nvim_create_user_command(
+			"OdooFind",
+			string.format(":Telescope find_files search_dirs={'%s'}", odoo_repository),
+			{}
+		)
+		vim.api.nvim_create_user_command(
+			"OdooGrep",
+			string.format(":Telescope live_grep search_dirs={'%s'}", odoo_repository),
+			{}
+		)
+		vim.api.nvim_create_user_command(
+			"OdooPyGrep",
+			string.format(":Telescope live_grep search_dirs={'%s'} type_filter=py", odoo_repository),
+			{}
+		)
+		vim.api.nvim_create_user_command(
+			"OdooXmlGrep",
+			string.format(":Telescope live_grep search_dirs={'%s'} type_filter=xml", odoo_repository),
+			{}
+		)
+	end
 end
