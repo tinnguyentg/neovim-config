@@ -10,7 +10,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap =
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+	fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
 	vim.cmd([[packadd packer.nvim]])
 end
 
@@ -28,6 +28,7 @@ return require("packer").startup(function(use)
 		config = require("plugins.nvim-tree"),
 	})
 	use("airblade/vim-gitgutter")
+	use("tpope/vim-fugitive")
 
 	-- Lualine
 	use({
@@ -63,7 +64,7 @@ return require("packer").startup(function(use)
 
 	-- Mason, lsp, cmp config
 	use({ "williamboman/mason.nvim", config = require("plugins.mason") })
-	use({ "WhoIsSethDaniel/mason-tool-installer.nvim", config = require("plugins.mason-tool-installer")})
+	use({ "WhoIsSethDaniel/mason-tool-installer.nvim", config = require("plugins.mason-tool-installer") })
 	use({ "williamboman/mason-lspconfig.nvim", config = require("plugins.mason-lsp") })
 	use({
 		"neovim/nvim-lspconfig",
