@@ -37,5 +37,10 @@ return function()
 			string.format(":Telescope live_grep search_dirs={'%s'} type_filter=xml", odoo_repository),
 			{}
 		)
+		vim.api.nvim_create_user_command(
+			"OdooJsGrep",
+			string.format(":Telescope live_grep search_dirs={'%s'} type_filter=js", odoo_repository),
+			{}
+		)
 	end
 end
