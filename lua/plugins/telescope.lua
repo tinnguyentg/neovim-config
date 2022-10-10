@@ -9,6 +9,8 @@ return function()
 	map("n", "FF", ":Telescope find_files hidden=true<cr>")
 	map("n", "fg", ":Telescope live_grep<cr>")
 	map("n", "fb", ":Telescope buffers<cr>")
+	map("n", "gb", ":Telescope git_branches<cr>")
+	map("n", "gst", ":Telescope git_status<cr>")
 
 	local odoo_repository = os.getenv("ODOO_REPOSITORY")
 	if odoo_repository then
@@ -43,4 +45,15 @@ return function()
 			{}
 		)
 	end
+
+	require("telescope").setup({
+		pickers = {
+			find_files = {
+				theme = "dropdown",
+			},
+			live_grep = {
+				theme = "dropdown",
+			},
+		},
+	})
 end
