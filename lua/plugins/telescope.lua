@@ -6,8 +6,9 @@ return function()
 	local map = require("maps").map
 
 	map("n", "ff", ":Telescope find_files<cr>")
-	map("n", "FF", ":Telescope find_files hidden=true<cr>")
+	map("n", "FF", ":Telescope find_files hidden=true no_ignore=true<cr>")
 	map("n", "fg", ":Telescope live_grep<cr>")
+	map("n", "FG", ":Telescope live_grep hidden=true no_ignore=true<cr>")
 	map("n", "fb", ":Telescope buffers<cr>")
 	map("n", "gb", ":Telescope git_branches<cr>")
 	map("n", "gst", ":Telescope git_status<cr>")

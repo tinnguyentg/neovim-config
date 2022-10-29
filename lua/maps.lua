@@ -65,6 +65,9 @@ map("n", "QQ", ":q!<CR>") -- Quit
 map("n", "<C-z>", "<Undo>") -- Undo file
 map("i", "<C-z>", "<ESC><Undo>") -- Undo file
 
--- map('n', '<C-f>', '/') --Search
+map("n", "<C-a>", "<C-Home>V<C-End>") -- Select all
+map("i", "<C-v>",'<ESC>"+p<ESC>a') -- Paste then append
+map("v", "<C-v>",'"+p<ESC><End>a') -- Paste then append
+map("v", "<C-c>",'"+y') -- Copy
 
 return M

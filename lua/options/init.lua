@@ -35,8 +35,12 @@ opt.hlsearch = false
 opt.swapfile = false
 
 --
-opt.foldmethod = 'indent'
+opt.foldmethod = "indent"
 opt.foldlevel = 1
+
+if os.getenv("WSL_DISTRO_NAME") ~= nil then
+	require("options.wsl")
+end
 
 vim.api.nvim_exec([[ autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab]], false)
 vim.api.nvim_exec([[ autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab]], false)
