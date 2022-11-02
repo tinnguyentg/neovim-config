@@ -16,4 +16,5 @@ vim.g.mason_lsp_ensured_installed = {
 	"yamlls",
 	"bashls",
 	"lemminx",
+	"jsonls",
 }

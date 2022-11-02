@@ -87,6 +87,9 @@ return require("packer").startup(function(use)
 	-- Null-ls
 	use({ "jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls") })
 
+	--
+	use({ "b0o/schemastore.nvim" })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
