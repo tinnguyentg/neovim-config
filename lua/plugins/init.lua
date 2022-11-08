@@ -24,7 +24,7 @@ return require("packer").startup(function(use)
 
 	-- Nvim-tree
 	use({
-		"kyazdani42/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua",
 		config = require("plugins.nvim-tree"),
 	})
 	use("airblade/vim-gitgutter")
