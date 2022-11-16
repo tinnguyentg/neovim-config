@@ -10,6 +10,9 @@ lspconfig.pylsp.setup({
 				pycodestyle = {
 					enabled = false,
 				},
+				autopep8 = {
+					enabled = false,
+				},
 				flake8 = {
 					enabled = true,
 				},
