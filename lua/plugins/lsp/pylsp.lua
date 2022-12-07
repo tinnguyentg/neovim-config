@@ -10,13 +10,22 @@ lspconfig.pylsp.setup({
 				pycodestyle = {
 					enabled = false,
 				},
-				autopep8 = {
+				mccabe = {
+					enabled = false,
+				},
+				pyflakes = {
 					enabled = false,
 				},
 				flake8 = {
 					enabled = true,
 				},
+				black = {
+					enabled = true,
+				},
 			},
+			configurationSources = {
+				'flake8'
+			}
 		},
 	},
 })

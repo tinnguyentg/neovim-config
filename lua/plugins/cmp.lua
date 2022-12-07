@@ -8,6 +8,7 @@ return function()
 	local opt = vim.opt
 	local cmp = require("cmp")
 	opt.completeopt = "menu,menuone,noselect"
+	vim.g.vsnip_snippet_dir = "~/.config/nvim/.vsnip"
 
 	cmp.setup({
 		snippet = {
