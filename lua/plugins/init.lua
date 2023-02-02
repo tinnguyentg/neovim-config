@@ -93,6 +93,9 @@ return require("packer").startup(function(use)
 	--
 	use({ "rest-nvim/rest.nvim", requires = { "nvim-lua/plenary.nvim" }, config = require("plugins.rest-nvim") })
 
+	-- Github Copilot integration
+	use({ "github/copilot.vim", config = require("plugins.copilot") })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
