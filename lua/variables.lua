@@ -12,7 +12,7 @@ vim.g.mason_lsp_ensured_installed = {
 	"tsserver",
 	"intelephense",
 	"volar",
-	"sumneko_lua",
+	"lua_ls",
 	"yamlls",
 	"bashls",
 	"lemminx",
