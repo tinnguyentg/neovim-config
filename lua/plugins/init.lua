@@ -79,6 +79,8 @@ return require("packer").startup(function(use)
 
 	use({ "rest-nvim/rest.nvim", config = require("plugins.rest") })
 
+	use({ "jackMort/ChatGPT.nvim", config = require("plugins.chatgpt"), requires = { "MunifTanjim/nui.nvim" } })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
