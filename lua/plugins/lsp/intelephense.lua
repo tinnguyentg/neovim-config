@@ -1,7 +1,57 @@
 local lspconfig = require("lspconfig")
 local config = require("plugins.lsp.config")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lspconfig.intelephense.setup({
 	on_attach = config.on_attach,
-	capabilities = config.capabilities(),
+	capabilities = capabilities,
+	settings = {
+		intelephense = {
+			stubs = {
+				"bcmath",
+				"bz2",
+				"calendar",
+				"Core",
+				"ctype",
+				"curl",
+				"date",
+				"dom",
+				"exif",
+				"fileinfo",
+				"filter",
+				"ftp",
+				"gd",
+				"hash",
+				"iconv",
+				"json",
+				"libxml",
+				"mbstring",
+				"mysqli",
+				"mysqlnd",
+				"openssl",
+				"pcntl",
+				"pcre",
+				"PDO",
+				"pdo_mysql",
+				"pdo_sqlite",
+				"Phar",
+				"posix",
+				"readline",
+				"Reflection",
+				"session",
+				"SimpleXML",
+				"sockets",
+				"SPL",
+				"sqlite3",
+				"standard",
+				"tokenizer",
+				"xml",
+				"xmlreader",
+				"xmlwriter",
+				"Zend OPcache",
+				"zip",
+				"zlib",
+			},
+		}
+	},
 })

@@ -1,70 +1,61 @@
---[[
---		Nvim plugins	
---]]
-
---[[
---		Packer bootstrapping	
---]]
-local vim = vim
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap =
-	fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-	vim.cmd([[packadd packer.nvim]])
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
 end
 
+local packer_bootstrap = ensure_packer()
+
 return require("packer").startup(function(use)
-	--
 	use("wbthomason/packer.nvim")
+	use("nvim-lua/plenary.nvim")
 
-	-- Gruvbox theme
+	-- UI
+	use("nvim-tree/nvim-web-devicons")
+	use({ "nvim-lualine/lualine.nvim", config = require("plugins.lualine") })
+	use("folke/tokyonight.nvim")
+	use("catppuccin/nvim")
+	use("Mofiqul/vscode.nvim")
 	use({ "ellisonleao/gruvbox.nvim", config = require("plugins.gruvbox") })
-	use({ "kyazdani42/nvim-web-devicons" })
 
-	-- Nvim-tree
+	--
+	use({ "windwp/nvim-autopairs", config = require("plugins.nvim-autopairs") })
+
+	--
+	use({ "nvim-treesitter/nvim-treesitter", config = require("plugins.nvim-treesitter") })
+
+	--
+	use({ "nvim-tree/nvim-tree.lua", config = require("plugins.nvim-tree") })
+
+	--
 	use({
-		"nvim-tree/nvim-tree.lua",
-		config = require("plugins.nvim-tree"),
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
 	})
-	use("airblade/vim-gitgutter")
 	use("tpope/vim-fugitive")
 
-	-- Lualine
+	--
+	use({ "numToStr/Comment.nvim", config = require("plugins.comment") })
 	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		config = require("plugins.lualine"),
-	})
-
-	-- Telescope
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
-		config = require("plugins.telescope"),
-	})
-
-	--Auto pairs
-	use({ "windwp/nvim-autopairs", config = require("plugins.autopairs") })
-
-	--Commentary
-	use({ "tpope/vim-commentary", config = require("plugins.vim-commentary") })
-
-	-- Floaterm
-	use({ "voldikss/vim-floaterm", config = require("plugins.floaterm") })
-
-	-- Tree sitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
+		"folke/todo-comments.nvim",
+		config = function()
+			require("todo-comments").setup()
 		end,
-		config = require("plugins.treesitter"),
 	})
 
-	-- Mason, lsp, cmp config
+	--
+	use({ "nvim-telescope/telescope.nvim", config = require("plugins.telescope") })
+
+	-- vim.g.lsp_ensure_installed = {}
+	require("plugins.lsp")
 	use({ "williamboman/mason.nvim", config = require("plugins.mason") })
-	use({ "WhoIsSethDaniel/mason-tool-installer.nvim", config = require("plugins.mason-tool-installer") })
 	use({ "williamboman/mason-lspconfig.nvim", config = require("plugins.mason-lsp") })
 	use({
 		"neovim/nvim-lspconfig",
@@ -81,20 +72,12 @@ return require("packer").startup(function(use)
 				"L3MON4D3/LuaSnip",
 			},
 		},
-		config = require("plugins.lsp"),
+		config = require("plugins.nvim-lspconfig"),
 	})
 
-	-- Null-ls
-	use({ "jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls") })
-
-	--
-	use({ "b0o/schemastore.nvim" })
-
-	--
-	use({ "rest-nvim/rest.nvim", requires = { "nvim-lua/plenary.nvim" }, config = require("plugins.rest-nvim") })
-
-	-- Github Copilot integration
 	use({ "github/copilot.vim", config = require("plugins.copilot") })
+
+	use({ "rest-nvim/rest.nvim", config = require("plugins.rest") })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

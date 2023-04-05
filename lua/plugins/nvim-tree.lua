@@ -1,17 +1,21 @@
---[[
---	Nvim-tree setup
---]]
-
 return function()
-	local map = require("maps").map
 	require("nvim-tree").setup({
-		filters = { custom = { "^.git$" } },
+		filters = {
+			dotfiles = true,
+		},
+		view = {
+			width = 42,
+			mappings = {
+				list = {
+					{ key = "<C-z>", action = "collapse_all" },
+				},
+			},
+		},
 	})
 
-	map("n", "<C-b>", ":NvimTreeToggle<CR>")
-	map("i", "<C-b>", "<ESC>:NvimTreeToggle<CR>")
-	map("n", "<C-f>", ":NvimTreeFindFile<CR>")
-	map("i", "<C-f>", "<ESC>:NvimTreeFindFile<CR>")
+	vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", {})
+	vim.keymap.set("i", "<C-b>", "<Esc>:NvimTreeClose<CR>a", {})
+	vim.keymap.set("n", "<C-f>", ":NvimTreeFindFile<CR>", {})
 
 	vim.keymap.set("n", "<leader>mn", require("nvim-tree.api").marks.navigate.next)
 	vim.keymap.set("n", "<leader>mp", require("nvim-tree.api").marks.navigate.prev)

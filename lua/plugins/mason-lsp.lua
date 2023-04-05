@@ -1,10 +1,8 @@
---[[
---	mason-lspconfig setup
---]]
-
 return function()
-	require("mason-lspconfig").setup({
-		ensure_installed = vim.g.mason_lsp_ensured_installed,
-		automatic_installation = false,
+	local mason_lsp_config = require("mason-lspconfig")
+
+	mason_lsp_config.setup({
+		ensure_installed = vim.g.lsp_ensured_installed,
+		automatic_installation = true,
 	})
 end

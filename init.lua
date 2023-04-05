@@ -1,7 +1,4 @@
-require("options")
-require("maps")
-
-if not os.getenv('SSH_CLIENT') then
-	require("variables")
-	require("plugins")
-end
+require("ui")
+require("wsl")
+require("keymap")
+require("plugins")
