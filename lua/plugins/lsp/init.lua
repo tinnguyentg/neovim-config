@@ -5,4 +5,5 @@ vim.g.lsp_ensure_installed = {
 	"intelephense",
 	"marksman",
 	"bashls",
+	"jsonls",
 }
