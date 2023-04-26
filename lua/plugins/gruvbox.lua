@@ -10,6 +10,6 @@ return function()
 	})
 
 	-- Set colorscheme
-	vim.cmd("colorscheme gruvbox")
+	vim.cmd("colorscheme tokyonight")
 end
 
