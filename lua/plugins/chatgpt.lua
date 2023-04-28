@@ -2,7 +2,7 @@ return function()
 	local chatgpt  = require("chatgpt")
 
 	chatgpt.setup({
-		keymaps = {
+		popup_input = {
 			submit = "<CR>"
 		}
 	})
