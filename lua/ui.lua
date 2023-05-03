@@ -11,5 +11,6 @@ opt.hlsearch = false
 vim.cmd [[
   autocmd FileType python,xml setlocal shiftwidth=4 tabstop=4 expandtab
   autocmd FileType json,markdown setlocal shiftwidth=2 tabstop=2 expandtab
+  autocmd FileType html,css,javascript setlocal shiftwidth=2 tabstop=2 expandtab
 ]]
 

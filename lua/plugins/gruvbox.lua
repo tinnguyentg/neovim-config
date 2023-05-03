@@ -1,7 +1,7 @@
 return function()
 	require("gruvbox").setup({
 		italic = {
-			strings = true,
+			strings = false,
 			comments = true,
 			operators = false,
 			folds = true,
@@ -12,4 +12,3 @@ return function()
 	-- Set colorscheme
 	vim.cmd("colorscheme gruvbox")
 end
-
