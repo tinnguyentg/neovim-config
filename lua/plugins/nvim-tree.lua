@@ -32,10 +32,17 @@ return function()
 		vim.keymap.set('n', 'D', api.fs.trash, opts('Trash'))
 		vim.keymap.set('n', 'E', api.tree.expand_all, opts('Expand All'))
 		vim.keymap.set('n', 'e', api.fs.rename_basename, opts('Rename: Basename'))
+
+		vim.keymap.set('n', 'cd', api.tree.change_root_to_node, opts('Change Root'))
 	end
 
 	require("nvim-tree").setup({
 		on_attach = on_attach,
+		actions = {
+			change_dir = {
+				global = true,
+			}
+		},
 		filters = {
 			dotfiles = true,
 		},
